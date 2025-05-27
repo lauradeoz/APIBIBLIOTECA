@@ -43,14 +43,20 @@ class Usuario{
     public function getEmail(){
         return $this->email;
     }
-    public function getActivo(){
+    public function isActivo(){
         return $this->activo;
     }
 
-
+        
+    public function setNombre($nombre){
+        $this->nombre = $nombre;
+    }
 
     public function setPassword($password){
         $this->password = $password;
+    }
+    public function setEmail($email){
+        $this->email = $email;
     }
     public function setActivo($activo){
         $this->activo = $activo;
@@ -58,7 +64,8 @@ class Usuario{
 
 
     public function __toString(){
-        return "Usuario: Id: $this->id Nombre: $this->nombre, Password: $this->password, Email: $this->email, Activo: " . ($this->activo ? 'Sí' : 'No');
+        $activo = $this->activo ? "Sí" : "No";
+        return ' Id: ' . $this->id . ' Nombre: ' . $this->nombre .  ' Email: ' . $this->email . "¿Está activo?" . $activo;
     }
 
 }
